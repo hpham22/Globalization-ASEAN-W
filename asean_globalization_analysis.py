@@ -97,7 +97,8 @@ def load_vdem(path: str) -> pd.DataFrame:
     df = df[(df["year"] >= YEAR_MIN) & (df["year"] <= YEAR_MAX)]
     df = df.merge(ASEAN_MAP[["cow_code", "country_label"]],
                   left_on="COWcode", right_on="cow_code")
-    return df[["country_label", "year", "e_gdppc", "e_pop"]].copy()
+    return df[["country_label", "year", "e_gdppc", "e_pop",
+                "v2regsupgroupssize"]].copy()
 
 
 def build_panel() -> pd.DataFrame:
